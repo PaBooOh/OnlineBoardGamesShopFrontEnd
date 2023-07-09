@@ -46,7 +46,7 @@ const loginRules = reactive<FormRules>({
   // ]
 });
 
-/** 手机登录校验 */
+/** Phone */
 // const phoneRules = reactive<FormRules>({
 //   phone: [
 //     {
