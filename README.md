@@ -9,6 +9,9 @@ This front-end project's is developed based on the [vue-vben-admin](https://gith
 * Docker
 * Azure (MYSQL / Virtual Machine)
 
+### AzureDevops
+![404 Not Found](/github_images/azure_devops_pipeline.png)
+
 ## Progress
 * Login (Token, JWT)
 * Register (Token, JWT)
