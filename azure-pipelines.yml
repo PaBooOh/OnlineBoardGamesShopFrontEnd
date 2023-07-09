@@ -1,0 +1,31 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  - group: myVariableGroup
+
+steps:
+- script: |
+    docker login -u $(dockerHubUserName) -p $(dockerHubPassword)
+  displayName: Docker Login
+
+- task: Docker@2
+  inputs:
+    containerRegistry: 'DockerHub'
+    repository: '$(dockerHubUserName)/myshopfront'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+    tags: latest
+  displayName: Docker Build and Push
+
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'Azure-VM'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      sshpass -p $(vmAdminPassword) ssh -o StrictHostKeyChecking=no $(vmAdminUsername)@20.126.86.227 "docker stop onlineshopfrontend; docker login -u $(dockerHubUserName) -p $(dockerHubPassword); docker pull $(dockerHubUserName)/myshopfront:latest; docker run --rm -d -p 4396:80 --name onlineshopfrontend $(dockerHubUserName)/myshopfront:latest; docker image prune -f"
+  displayName: Deploy Frontend project to Azure VM
