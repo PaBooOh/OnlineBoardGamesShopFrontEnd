@@ -54,7 +54,7 @@ export const getLogin = async (data?: {
 }) => {
   try {
     const response = await axios.post(
-      "http://51.124.19.239:3306/login/loginByUsername",
+      "http://20.16.144.101:8965/login/loginByUsername",
       {
         userName: data.username,
         password: data.password
@@ -76,7 +76,7 @@ export const getRegister = async (data?: {
 }) => {
   try {
     const response = await axios.post(
-      "http://51.124.19.239:3306/register/registerByUsername",
+      "http://20.16.144.101:8965/register/registerByUsername",
       {
         userName: data.username,
         password: data.password,
