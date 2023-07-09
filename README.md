@@ -1,5 +1,5 @@
 # OnlineBoardGamesShopFrontEnd
-To see the demo, visit [this]() for 
+To see my project in Azure, visit this [link](http://20.126.86.227:4396/) 
 See [OnlineBoardGamesShopBackEnd](https://github.com/PaBooOh/OnlineBoardGamesShopBackEnd) for the details about the back-end system for this project.
 This front-end project's is developed based on the [vue-vben-admin](https://github.com/vbenjs/vben-admin-thin-next) repo.
 ## Technologies
